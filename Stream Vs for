@@ -1,0 +1,50 @@
+package Streams;
+
+import java.util.ArrayList;
+import java.util.stream.Stream;
+
+public class NoNames {
+	public static void main(String[] args) {
+		
+		ArrayList<String> names=new ArrayList<String>();
+		names.add("Vishal");
+		names.add("Ram");
+		names.add("Shame");
+		names.add("Seeta");
+		names.add("Laxamanr");
+		
+		//System.out.println(names);
+		/*
+		int count=0;
+		for(int i=0;i<names.size();i++) {
+			String s=names.get(i);
+			   if(s.startsWith("S")) {
+			     System.out.println(s);
+				  count++;
+			}
+		}  
+		System.out.println(count);  */
+		
+		Long l=names.stream().filter(s->s.startsWith("S")).count();
+		System.out.println(l);
+		
+		Long a=Stream.of("Amit","Sujata","Sham","Sir Ratan","John").filter(s->
+		{ 
+			s.startsWith("J");
+			return true;
+			
+		}).count();
+		System.out.println(a);
+		
+		//To print all names with length greater than four
+		//names.stream().filter(s->s.length()>4).forEach(s->System.out.println(s));  
+		
+		//To print only one name with length greater than 4
+		names.stream().filter(s->s.length()>4).limit(1).forEach(s->System.out.println(s));
+		
+		}
+		
+	}
+
+
+
