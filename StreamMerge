@@ -1,0 +1,23 @@
+package Streams;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Stream;
+
+public class MergeStream {
+      public static void main(String[] args) {
+		
+    	  ArrayList<String> names=new ArrayList<String>();
+  		names.add("Vishal");
+  		names.add("Ram");
+  		names.add("Shame");
+  		names.add("Seeta");
+  		names.add("Laxamanr");
+  		
+  		List<String> name=Arrays.asList("Ramlal","Shamlal","John","James","Julie","Andrew","Aditi");
+  		
+  		Stream<String>newStream=Stream.concat(names.stream(),names.stream());
+  		newStream.forEach(s->System.out.println(s));
+	}
+}
